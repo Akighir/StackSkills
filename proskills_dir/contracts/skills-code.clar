@@ -1,5 +1,5 @@
-;; Skills Marketplace Smart Contract - Version 3
-;; Full-featured implementation with secure service credentials and admin functions
+;; Skills Marketplace Smart Contract
+;; Allows professionals to list, sell, and manage their services on the Stacks blockchain
 
 ;; Constants
 (define-constant contract-administrator tx-sender)
@@ -85,6 +85,8 @@
 )
 
 ;; Public functions
+
+;; List a new service
 (define-public (create-service-listing (service-price uint) 
                                      (service-description (string-ascii 256)) 
                                      (expertise-category (string-ascii 64)) 
@@ -191,7 +193,7 @@
     )
 )
 
-;; Service management functions
+;; Update service price
 (define-public (update-service-price (listing-id uint) (new-price uint))
     (let
         (
@@ -211,6 +213,7 @@
     )
 )
 
+;; Remove service listing
 (define-public (deactivate-service (listing-id uint))
     (let
         (
